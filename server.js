@@ -6,6 +6,7 @@ var apiUrl = 'http://m.gsa.gov/api';
 
 app.use('/api', function(req, res) {
   var url = apiUrl + req.url;
+  console.log('request: ',url)
   req.pipe(request(url)).pipe(res);
 });
 
