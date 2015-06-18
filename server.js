@@ -7,12 +7,22 @@ var apiUrl = 'http://m.gsa.gov/api';
 app.use('/api', function(req, res) {
     var url = apiUrl + req.url;
     console.log('request: ', url)
-    req.pipe(request({
+    /*req.pipe(request({
     	headers: {
     		'Accept': 'application/json'
     	},
     	uri: url
-    })).pipe(res);
+    })).pipe(res);*/
+request({
+    	headers: {
+    		'Accept': 'application/json'
+    	},
+    	uri: url
+    },function(error,response,json){
+    	json = JSON.parse(json)
+    	res.json(json);
+    })
+	
 });
 
 app.listen(process.env.PORT || 3000);
