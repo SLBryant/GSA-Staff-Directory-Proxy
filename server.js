@@ -20,7 +20,7 @@ request({
     	uri: url
     },function(error,response,json){
     	json = JSON.parse(json)
-    	res.json(json);
+    	res.header('Access-Control-Allow-Origin','*').json(json);
     })
 	
 });
