@@ -9,7 +9,7 @@ app.use('/api', function(req, res) {
     console.log('request: ', url)
     req.pipe(request({
     	headers: {
-    		'Accept': 'application / json'
+    		'Accept': 'application/json'
     	},
     	uri: url
     })).pipe(res);
