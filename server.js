@@ -18,7 +18,7 @@ app.use('/api', function(req, res) {
         	res.header('Access-Control-Allow-Origin', '*').json(json);
     	}
     	else{
-    		res.header('Access-Control-Allow-Origin', '*').status('404').send('404');
+    		res.header('Access-Control-Allow-Origin', '*').status(404).send('404');
     	}
     })
 
