@@ -15,7 +15,10 @@ app.use('/api', function(req, res) {
     }, function(error, response, json) {
     	if (!error && response.statusCode == 200) {
     		json = JSON.parse(json)
-        	res.header('Access-Control-Allow-Origin', '*').status('404');
+        	res.header('Access-Control-Allow-Origin', '*').json(json);
+    	}
+    	else{
+    		res.header('Access-Control-Allow-Origin', '*').status('404');
     	}
     })
 
