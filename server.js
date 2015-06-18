@@ -13,8 +13,10 @@ app.use('/api', function(req, res) {
             'Accept': 'application/json'
         }
     }, function(error, response, json) {
-        json = JSON.parse(json)
-        res.header('Access-Control-Allow-Origin', '*').json(json);
+    	if (!error && response.statusCode == 200) {
+    		json = JSON.parse(json)
+        	res.header('Access-Control-Allow-Origin', '*').error('404');
+    	}
     })
 
 });
