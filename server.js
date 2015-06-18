@@ -5,9 +5,14 @@ var app = express();
 var apiUrl = 'http://m.gsa.gov/api';
 
 app.use('/api', function(req, res) {
-  var url = apiUrl + req.url;
-  console.log('request: ',url)
-  req.pipe(request(url)).pipe(res);
+    var url = apiUrl + req.url;
+    console.log('request: ', url)
+    req.pipe(request({
+    	headers: {
+    		'Accept': 'application / json'
+    	},
+    	uri: url
+    })).pipe(res);
 });
 
 app.listen(process.env.PORT || 3000);
