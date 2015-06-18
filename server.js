@@ -2,7 +2,7 @@ var request = require('request');
 var express = require('express');
 var app = express();
 
-var apiUrl = 'http://m.gsa.gov/api/rs/a';
+var apiUrl = 'http://m.gsa.gov/api';
 
 app.use('/api', function(req, res) {
   var url = apiUrl + req.url;
